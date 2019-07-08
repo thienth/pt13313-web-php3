@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    FPT Polytechnic
+                    FPT Polytechnic _ Tuan dep trai
                 </div>
 
                 
