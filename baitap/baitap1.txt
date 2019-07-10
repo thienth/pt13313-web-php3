@@ -1,4 +1,5 @@
 Tạo bảng products gồm cấu trúc
+
 id int pk ai
 name varchar
 image varchar
@@ -9,3 +10,12 @@ status int
 
 tạo bảng bằng migration
 sử dụng seeder để thêm 100 bản ghi vào bảng products
+
+
+migration: 
+php artisan make:migration create_tablename_table --create
+php artisan migrate
+
+seeder:
+php artisan make:seeder PostsTableSeeder
+php artisan db:seed --class=PostsTableSeeder
