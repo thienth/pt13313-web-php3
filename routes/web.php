@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = App\Post::all();
+    return view('list-post', [
+    				'baiviet' => $posts
+				]);
 });
+
