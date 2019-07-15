@@ -1,3 +1,7 @@
+<form action="" method="get">
+	<input type="text" name="keyword" placeholder="Tìm kiếm...">
+	<button type="submit">tim</button>
+</form>
 <table>
 	<tbody>
 		@foreach($baiviet as $bv)
