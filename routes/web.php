@@ -37,3 +37,13 @@ Route::get('add-new', function(Request $request){
 	return "Thành công!";
 });
 
+Route::get('view-test', function(){
+	$age = 100;
+	$name = "thienth - poly";
+	return view('demo-test', [
+		"age" => 100,
+		"name" => 'thienth dep trai'
+
+	]);
+});
+
