@@ -13,6 +13,7 @@ class PostController extends Controller
 			$kw = $request->keyword;
 			$posts = Post::where('title', 'like', "%$kw%")
 							->paginate(5);
+			$posts->withPath("?keyword=$kw");
 		}
 	    return view('list-post', [
 	    				'baiviet' => $posts
