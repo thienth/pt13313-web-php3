@@ -14,7 +14,7 @@ class PostsTableSeeder extends Seeder
         $posts = [];
         $faker = Faker\Factory::create();
 
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 30; $i++) { 
         	$item = [
         		'title' => $faker->name,
         		'image' => 'images/'. $faker->image($dir = 'public/images', $width = 640, $height = 480, 'people', false),
