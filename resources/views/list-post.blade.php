@@ -35,7 +35,11 @@
 					<tr>
 						<td>{{$bv->id}}</td>
 						<td>{{$bv->title}}</td>
-						<td>{{$bv->user->name}}</td>
+						<td>
+							@isset($bv->user->name)
+								{{$bv->user->name}}
+							@endisset
+						</td>
 						<td>
 							<img src="{{$bv->image}}" width="70">
 						</td>
