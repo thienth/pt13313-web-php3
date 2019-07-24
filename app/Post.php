@@ -12,4 +12,8 @@ class Post extends Model
     	'publish_date', 'status',
     	'author_id'
     ];
+
+    public function user(){
+    	return $this->belongsTo('App\User', 'author_id', 'id');
+    }
 }

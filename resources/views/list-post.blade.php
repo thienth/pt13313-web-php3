@@ -25,6 +25,7 @@
 					<tr>
 					  <th>ID</th>
 					  <th>Title</th>
+					  <th>Author name</th>
 					  <th>Image</th>
 					  <th>
 					  	<a href="" class="btn btn-sm btn-success">Add</a>
@@ -34,6 +35,7 @@
 					<tr>
 						<td>{{$bv->id}}</td>
 						<td>{{$bv->title}}</td>
+						<td>{{$bv->user->name}}</td>
 						<td>
 							<img src="{{$bv->image}}" width="70">
 						</td>
