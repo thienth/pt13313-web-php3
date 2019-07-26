@@ -8,9 +8,9 @@ class Post extends Model
 {
     protected $table = 'posts';
     protected $fillable = [
-    	'title', 'image', 'content',
+    	'title', 'content',
     	'publish_date', 'status',
-    	'author_id'
+    	'author_id', 'category_id'
     ];
 
     public function user(){

@@ -28,4 +28,13 @@ class PostController extends Controller
 
     	return view('post.add-form', compact('model', 'authors', 'cates'));
     }
+
+    public function saveAddNew(Request $request){
+    	$model = new Post();
+    	$model->fill($request->all());
+    	// dd($model);
+    	$model->save();
+    	return redirect(route('homepage'));
+    }
+
 }

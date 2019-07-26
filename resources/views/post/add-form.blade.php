@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{route('post.add')}}" method="post" enctype="multipart/form-data">
 	@csrf
 	<div class="form-group">
 		<label>Title</label>
@@ -21,7 +21,7 @@
 	</div>
 	<div class="form-group">
 		<label>Author</label>
-		<select name="author" class="form-control">
+		<select name="author_id" class="form-control">
 			@foreach ($authors as $au)
 			<option value="{{$au->id}}">{{$au->name}}</option>
 			@endforeach

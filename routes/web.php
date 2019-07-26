@@ -28,6 +28,7 @@ Route::get('remove-post/{id}', function($id){
 });
 
 Route::get('add-new', 'PostController@addNew')->name('post.add');
+Route::post('add-new', 'PostController@saveAddNew');
 
 
 
