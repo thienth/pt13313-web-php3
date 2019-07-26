@@ -19,4 +19,7 @@ class PostController extends Controller
 	    				'baiviet' => $posts
 					]);
     }
+    public function addNew(){
+    	
+    }
 }

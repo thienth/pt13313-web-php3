@@ -12,11 +12,6 @@
 */
 use Illuminate\Http\Request;
 Route::get('/', 'PostController@index');
-Route::get('post-by-user/{userId}', function($userId){
-	$user = App\User::find($userId);
-	dd(count($user->posts));
-});
-
 Route::get('remove-post/{id}', function($id){
 	$post = App\Post::find($id);
 
@@ -32,13 +27,7 @@ Route::get('remove-post/{id}', function($id){
 
 });
 
-Route::get('add-new', function(Request $request){
-	$post = new App\Post();
-	dd($request->all());
-	$post->fill($request->all());
-	$post->save();
-	return "Thành công!";
-});
+Route::get('add-new', 'PostController@addNew')->name('post.add');
 
 
 
