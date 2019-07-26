@@ -28,7 +28,7 @@
 					  <th>Author name</th>
 					  <th>Image</th>
 					  <th>
-					  	<a href="" class="btn btn-sm btn-success">Add</a>
+					  	<a href="{{route('post.add')}}" class="btn btn-sm btn-success">Add</a>
 					  </th>
 					</tr>
 					@foreach($baiviet as $bv)

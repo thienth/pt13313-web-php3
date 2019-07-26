@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use App\Category;
 class PostController extends Controller
 {
     public function index(Request $request){
@@ -20,6 +22,10 @@ class PostController extends Controller
 					]);
     }
     public function addNew(){
-    	
+    	$model = new Post();
+    	$authors = User::all();
+    	$cates = Category::all();
+
+    	return view('post.add-form', compact('model', 'authors', 'cates'));
     }
 }
