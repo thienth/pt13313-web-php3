@@ -11,7 +11,7 @@
 |
 */
 use Illuminate\Http\Request;
-Route::get('/', 'PostController@index');
+Route::get('/', 'PostController@index')->name('homepage');
 Route::get('remove-post/{id}', function($id){
 	$post = App\Post::find($id);
 
