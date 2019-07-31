@@ -35,8 +35,14 @@ class PostController extends Controller
     public function saveAddNew(AddFormRequest $request){
 
     	$model = new Post();
-    	$model->fill($request->all());
-    	// dd($model);
+
+        if($request->hasFile('image')){
+            $path = $request->file('image')->storeAs('posts', 
+            str_replace(' ', '-', uniqid() . '-' .$request->image->getClientOriginalName()));
+            $model->image = 'images/'.$path;
+        }
+
+        $model->fill($request->all());
     	$model->save();
     	return redirect(route('homepage'));
     }
@@ -55,6 +61,13 @@ class PostController extends Controller
     public function saveEdit(AddFormRequest $request){
 
         $model = Post::find($request->id);
+
+        if($request->hasFile('image')){
+            $path = $request->file('image')->storeAs('posts', 
+            str_replace(' ', '-', uniqid() . '-' .$request->image->getClientOriginalName()));
+            $model->image = 'images/'.$path;
+        }
+        
         $model->fill($request->all());
         $model->save();
         return redirect(route('homepage'));
