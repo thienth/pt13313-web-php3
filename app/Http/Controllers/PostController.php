@@ -37,8 +37,12 @@ class PostController extends Controller
     	$model = new Post();
 
         if($request->hasFile('image')){
-            $path = $request->file('image')->storeAs('posts', 
-            str_replace(' ', '-', uniqid() . '-' .$request->image->getClientOriginalName()));
+           
+            $oriFileName = $request->image->getClientOriginalName();
+            $filename = str_replace(' ', '-', $oriFileName);
+            $filename = uniqid() . '-' . $filename;
+
+            $path = $request->file('image')->storeAs('posts', $filename));
             $model->image = 'images/'.$path;
         }
 
@@ -67,7 +71,7 @@ class PostController extends Controller
             str_replace(' ', '-', uniqid() . '-' .$request->image->getClientOriginalName()));
             $model->image = 'images/'.$path;
         }
-        
+
         $model->fill($request->all());
         $model->save();
         return redirect(route('homepage'));
