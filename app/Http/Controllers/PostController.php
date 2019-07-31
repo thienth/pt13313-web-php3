@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use Carbon\Carbon;
+use App\Http\Requests\AddFormRequest;
+
 use App\Post;
 use App\User;
 use App\Category;
@@ -23,6 +23,7 @@ class PostController extends Controller
 	    				'baiviet' => $posts
 					]);
     }
+    
     public function addNew(){
     	$model = new Post();
     	$authors = User::all();
@@ -31,19 +32,7 @@ class PostController extends Controller
     	return view('post.add-form', compact('model', 'authors', 'cates'));
     }
 
-    public function saveAddNew(Request $request){
-        $validateData = $request->validate([
-            'title' => [
-                'required',
-                Rule::unique('posts'),
-            ],
-            'image' => 'required|file|mimes:jpeg,png',
-            'publish_date' => 'required|date|after:'.Carbon::now()->subDay()->format('Y-m-d')
-        ],
-        [
-            'title.required' => 'Vui lòng điền dữ liệu cho tiêu đề',
-            'title.unique' => 'Tiêu đề đã tồn tại, vui lòng chọn tiêu đề khác'
-        ]);
+    public function saveAddNew(AddFormRequest $request){
 
     	$model = new Post();
     	$model->fill($request->all());

@@ -7,6 +7,7 @@ price float
 detail text
 amount int
 status int
+cate_id int
 
 tạo bảng bằng migration
 sử dụng seeder để thêm 100 bản ghi vào bảng products
