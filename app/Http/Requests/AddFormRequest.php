@@ -25,14 +25,21 @@ class AddFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+
+        $validate = [
             'title' => [
                 'required',
-                Rule::unique('posts'),
-            ],
-            'image' => 'required|file|mimes:jpeg,png',
-            'publish_date' => 'required|date|after:'.Carbon::now()->subDay()->format('Y-m-d')
+                Rule::unique('posts')->ignore($this->id),
+            ]
         ];
+
+        if(!$this->id){
+            $validate['publish_date'] = 'required|date|after:'.Carbon::now()->subDay()->format('Y-m-d');
+            $validate['image'] = 'required|file|mimes:jpeg,png';
+        }
+
+
+        return $validate;
     }
 
     public function messages(){

@@ -44,7 +44,7 @@
 							<img src="{{$bv->image}}" width="70">
 						</td>
 						<td>
-							<a href="" class="btn btn-sm btn-info">Edit</a>
+							<a href="{{route('post.edit', ['id' => $bv->id])}}" class="btn btn-sm btn-info">Edit</a>
 							<a href="" class="btn btn-sm btn-danger">Remove</a>
 						</td>
 					</tr>

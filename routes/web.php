@@ -27,8 +27,11 @@ Route::get('remove-post/{id}', function($id){
 
 });
 
-Route::get('add-new', 'PostController@addNew')->name('post.add');
-Route::post('add-new', 'PostController@saveAddNew');
+Route::get('post/add-new', 'PostController@addNew')->name('post.add');
+Route::post('post/add-new', 'PostController@saveAddNew');
+
+Route::get('post/edit/{id}', 'PostController@editForm')->name('post.edit');
+Route::post('post/edit/{id}', 'PostController@saveEdit');
 
 
 
