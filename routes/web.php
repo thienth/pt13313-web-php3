@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 Route::get('cp-login', 'Auth\LoginController@loginForm')->name('login');
+Route::post('cp-login', 'Auth\LoginController@postLogin');
 
 
 

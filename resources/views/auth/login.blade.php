@@ -33,6 +33,7 @@
   <div class="login-logo">
     <a href="adminlte/index2.html"><b>PT13313</b>WEB</a>
   </div>
+  <!-- {{Hash::make('chungdeptrai')}} -->
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>

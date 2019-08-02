@@ -1,3 +1,6 @@
+Trịnh Hoàng Anh - (trừ 2 điểm assignment)
+Nguyễn Minh Đức - (trừ 3 điểm assignment)
+
 Tạo bảng products gồm cấu trúc
 
 id int pk ai
