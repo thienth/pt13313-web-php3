@@ -31,6 +31,6 @@ class LoginController extends Controller
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password]) ){
             return redirect()->route('homepage');
         }
-        return view('auth.login')->with('errmsg', 'Sai thông tin tài khoản/mật khẩu');
+        return redirect()->route('login')->with('errmsg', 'Sai thông tin tài khoản/mật khẩu');
     }
 }

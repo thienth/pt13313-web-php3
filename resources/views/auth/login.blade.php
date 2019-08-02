@@ -37,7 +37,9 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-
+    @if (session('errmsg'))
+      <p class="text-danger">{{session('errmsg')}}</p>
+    @endif
     <form action="{{route('login')}}" method="post">
       @csrf
       <div class="form-group has-feedback">
