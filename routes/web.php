@@ -11,27 +11,32 @@
 |
 */
 use Illuminate\Http\Request;
-Route::get('/', 'PostController@index')->name('homepage');
-Route::get('remove-post/{id}', function($id){
-	$post = App\Post::find($id);
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/', 'PostController@index')
+			->name('homepage');
+	Route::get('remove-post/{id}', function($id){
+		$post = App\Post::find($id);
 
-	DB::beginTransaction();
-	try{
-		$post->delete();	
-		DB::commit();
-	}catch(Exception $ex){
-		// ghi log
-		DB::rollBack();
-	}
-	
+		DB::beginTransaction();
+		try{
+			$post->delete();	
+			DB::commit();
+		}catch(Exception $ex){
+			// ghi log
+			DB::rollBack();
+		}
+	});
 
+	Route::get('post/add-new', 'PostController@addNew')->name('post.add');
+	Route::post('post/add-new', 'PostController@saveAddNew');
+
+	Route::get('post/edit/{id}', 'PostController@editForm')->name('post.edit');
+	Route::post('post/edit/{id}', 'PostController@saveEdit');
 });
 
-Route::get('post/add-new', 'PostController@addNew')->name('post.add');
-Route::post('post/add-new', 'PostController@saveAddNew');
+Route::get('cp-login', 'Auth\LoginController@loginForm')->name('login');
 
-Route::get('post/edit/{id}', 'PostController@editForm')->name('post.edit');
-Route::post('post/edit/{id}', 'PostController@saveEdit');
+
 
 
 

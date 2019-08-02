@@ -42,7 +42,7 @@ class PostController extends Controller
             $filename = str_replace(' ', '-', $oriFileName);
             $filename = uniqid() . '-' . $filename;
 
-            $path = $request->file('image')->storeAs('posts', $filename));
+            $path = $request->file('image')->storeAs('posts', $filename);
             $model->image = 'images/'.$path;
         }
 
